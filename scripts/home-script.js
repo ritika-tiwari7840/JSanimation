@@ -101,9 +101,11 @@ navAnimation();
 
 
 
+function gameAnimation(){
 
+console.log("ritika")
 
-
+}
 
 
 
