@@ -2,6 +2,7 @@
 margin: 0;
 padding:0;
 box-sizing: border-box;
+overflow-x:hidden;
 }
 
 canvas{
@@ -51,3 +52,33 @@ text-decoration: underline;
  box-shadow: 3px 3px 4px grey;
 
 }
+
+
+
+
+
+
+
+/* css for game page */
+
+
+.game-container{
+    width:100vw;
+    height:100vh;
+    background-color: red;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    }
+    #game{
+    width: 30%;
+    height: 70%;
+    background-color: white;
+    
+        
+    }
+    
+    
