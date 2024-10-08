@@ -1,7 +1,7 @@
 // Animation for navigation page
 
 function navAnimation(){
-let canva = document.querySelector('canvas');
+let canva = document.getElementById('navigation');
 console.log(canva)
 
 canva.width = window.innerWidth;
@@ -101,10 +101,19 @@ navAnimation();
 
 
 
+
+
 function gameAnimation(){
 let homeContainer=document.getElementsByClassName("home-container");
 console.log("ritika",homeContainer);
 homeContainer[0].style.display="none";
+let canva = document.getElementById('navigation');
+canva.style.display="none";
+
+let gameContainer=document.getElementById("game-container");
+console.log(gameContainer)
+gameContainer.style.display="flex";
+
 
 }
 
