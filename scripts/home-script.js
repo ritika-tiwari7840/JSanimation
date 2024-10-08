@@ -1,6 +1,8 @@
+// Animation for navigation page
+
+function navAnimation(){
 var canva = document.querySelector('canvas');
 console.log(canva)
-
 
 canva.width = window.innerWidth;
 canva.height = window.innerHeight;
@@ -92,6 +94,16 @@ function animate() {
 }
 
 animate();
+}
+
+
+navAnimation();
+
+
+
+
+
+
 
 
 
