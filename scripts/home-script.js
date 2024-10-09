@@ -189,6 +189,13 @@ function countAnimation(boolVar) {
         gameAnimation(boolVar);
 
     }
+    else{
+      let result=document.getElementById("result");
+      result.style.display="flex";
+
+
+
+    }
     
 
 
@@ -295,7 +302,7 @@ function gameAnimation(boolVar) {
             }
         }
         dist = dist + 1;
-        y -= 0.5;
+        y -=1;
     }
 
 }

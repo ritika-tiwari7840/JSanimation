@@ -18,7 +18,7 @@ canvas {
 
 .home-container {
   margin: auto;
-  margin-top: 3%;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -31,6 +31,7 @@ canvas {
   background-image: url(images/fairinstruct.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  padding:2%;
 }
 
 .home-container h1 {
@@ -164,4 +165,33 @@ canvas {
 .green {
   width: 50%;
   height: 50%;
+}
+
+#result{
+
+    background-color: yellow;
+    border: 2px solid var(--black);
+    width:20%;
+    padding:5%;
+
+  position: fixed;
+  top:40%;
+ left:40%;
+ display: none;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ border-radius: 15px;
+ z-index: 100;
+
+}
+
+#result button{
+
+    background-color: blue;
+    color:var(--white);
+    padding: 5%;
+    width:100px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px grey;
 }
