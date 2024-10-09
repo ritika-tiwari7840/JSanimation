@@ -92,7 +92,6 @@ function navAnimation() {
         y += dy;
 
     }
-
     animate();
 }
 
@@ -113,121 +112,182 @@ function instruct() {
     let instruct = document.getElementById('instruction');
     instruct.style.display = "flex";
 
-
-
 }
 
+// for closing instruction window
 
-function closeInstruct(){
+
+function closeInstruct() {
     let instruct = document.getElementById('instruction');
     instruct.style.display = "none";
-  gameAnimation();
+    countAnimation(true);
 }
 
 
 
 
-function gameAnimation() {
-  
-
-
-        let gameContainer = document.getElementById("game-container");
-        console.log(gameContainer)
-        gameContainer.style.display = "flex";
 
 
 
+function state(state) {
+    let red = document.getElementById('red');
+    red.style.display = 'flex';
+    console.log(red.children)
+    pChild = red.children[0];
+    imgChild = red.children[1];
+    btnChild = red.children[2];
 
-        // for Event Listener
+    if (state == 0) {
+        pChild.innerHTML = "You Miss The Gift";
+        console.log(red.children);
+    }
+    else if (state == 1) {
+        pChild = red.children[0];
+        pChild.innerHTML = " Congrats !!! You got The Gift";
 
-        let startX = 0, startY = 0, endX = 0, endY = 0;
-        let isDragging = false;
-        let distance = 0;
+        imgChild = red.children[1];
+        btnChild = red.children[2];
+        btnChild.style.backgroundColor = "green";
 
-        // When mouse button is pressed, capturing the starting position
-        window.addEventListener("mousedown", function (e) {
-            startX = e.clientX;
-            startY = e.clientY;
-            isDragging = true;
-        });
+        imgChild.setAttribute('src', 'images/pop.gif');
+        imgChild.setAttribute('class', 'green');
 
-        // When mouse button is released, capturing the ending position and calculate distance
-        window.addEventListener("mouseup", function (e) {
-            if (isDragging) {
-                endX = e.clientX;
-                endY = e.clientY;
-                isDragging = false;
+    }
 
-                // Calculate distance using the Pythagorean theorem
-                distance = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
-                distance = distance.toFixed(0);
-                animate();
+}
 
+// to count number of attempts
+
+let count = 1;
+function countAnimation(boolVar) {
+    let red = document.getElementById('red');
+    red.style.display = 'none';
+    let gift = document.getElementById('gift');
+    if (count == 1) {
+        gift.setAttribute('src', 'images/vim.png');
+    }
+    else if (count == 2) {
+        gift.setAttribute('src', 'images/bottle.png');
+
+    }
+    else {
+        gift.setAttribute('src', 'images/teddy.png');
+
+    }
+    if (count >= 1 && count <= 3) {
+        count = count + 1;
+        gameAnimation(boolVar);
+
+    }
+
+
+
+
+}
+
+
+
+
+function gameAnimation(boolVar) {
+
+
+
+    let gameContainer = document.getElementById("game-container");
+    console.log(gameContainer)
+    gameContainer.style.display = "flex";
+
+
+
+
+    // for Event Listener
+
+    let startX = 0, startY = 0, endX = 0, endY = 0;
+    let isDragging = false;
+    let distance = 0;
+
+    // When mouse button is pressed, capturing the starting position
+    window.addEventListener("mousedown", function (e) {
+        startX = e.clientX;
+        startY = e.clientY;
+        isDragging = true;
+    });
+
+    // When mouse button is released, capturing the ending position and calculate distance
+    window.addEventListener("mouseup", function (e) {
+        if (isDragging) {
+            endX = e.clientX;
+            endY = e.clientY;
+            isDragging = false;
+
+            // Calculate distance using the Pythagorean theorem
+            distance = Math.sqrt(Math.pow(endX - startX, 2) + Math.pow(endY - startY, 2));
+            distance = distance.toFixed(0);
+
+            console.log("In game Animation", boolVar);
+            if (boolVar == true) {
+                animate(boolVar);
             }
-        });
+
+        }
+    });
+
+
+    // for game logic
+
+    let game = document.getElementById("game");
+
+    var c = game.getContext('2d');
+    var radius = 20;
+    var y = game.height - radius;
+    let objDist = game.height;
+    let dist = 0;
+    let id;
 
 
 
+    c.beginPath();
+    c.arc(game.width - 150, y, 20, 0, Math.PI * 2, false);
+    c.strokeStyle = "blue";
+    c.lineWidth = 5;
+    c.stroke();
 
+    function animate(boolVar) {
 
-
-
-
-
-
-
-        // for game logic
-
-        let game = document.getElementById("game");
-
-        var c = game.getContext('2d');
-        var radius = 20;
-        var y = game.height - radius;
-        let objDist = 0;
-        let dist = 0;
-        let id;
-
-
-
+        console.log("distance is ", distance);
+        // requestAnimationFrame(animate);
+        c.clearRect(0, 0, game.width, game.height);
+        id = requestAnimationFrame(animate);
         c.beginPath();
         c.arc(game.width - 150, y, 20, 0, Math.PI * 2, false);
         c.strokeStyle = "blue";
         c.lineWidth = 5;
         c.stroke();
+        if (dist == distance) {
+            console.log("Animation stopped!", id);
 
-        function animate() {
+            cancelAnimationFrame(id);
+            if (dist >= objDist) {
 
-            console.log("distance is ", distance);
-            // requestAnimationFrame(animate);
-            c.clearRect(0, 0, game.width, game.height);
-            id = requestAnimationFrame(animate);
-            c.beginPath();
-            c.arc(game.width - 150, y, 20, 0, Math.PI * 2, false);
-            c.strokeStyle = "blue";
-            c.lineWidth = 5;
-            c.stroke();
-            if (dist == distance) {
-                console.log("Animation stopped!", id);
-
-                cancelAnimationFrame(id);
-                if (dist == objDist) {
-
-                    c.strokeStyle = "green";
-                    c.stroke()
-                }
-                else {
-                    c.strokeStyle = "red";
-                    c.stroke();
-                    // c.clearRect(0,0,game.width,game.height);
-                    gameAnimation();
-                    return;
-                }
+                c.strokeStyle = "green";
+                c.stroke()
+                state(1)
             }
-            dist = dist + 1;
-            y -= 0.5;
-        }
+            else {
 
+                c.strokeStyle = "red";
+                c.stroke();
+
+                state(0);
+
+
+                return;
+            }
+        }
+        dist = dist + 1;
+        y -= 0.5;
     }
+
+}
 
 
 

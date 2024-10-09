@@ -1,51 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ring Toss</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="scripts/home-script.js" defer></script>
-</head>
-<body>
-    <div class="home-container">
-        <h1>WELCOME TO THE GAME !!!!</h1>
-        <img src="images/ring.png" alt="">
-        <button class="play" onclick="instruct()">Play Game</button>
-        
-        
-        
-    </div>
-    <canvas id="navigation"></canvas>
-    
-    
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Ring Toss</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="scripts/home-script.js" defer></script>
+    </head>
+
+    <body>
+        <div class="home-container">
+            <h1>WELCOME TO THE GAME !!!!</h1>
+            <img src="images/ring.png" alt="">
+            <button class="play" onclick="instruct()">Play Game</button>
 
 
-    <div id="game-container">
-        <img src="images/vim.png" alt="" width="10%">
-        <canvas id="game"></canvas> 
+
+        </div>
+        <canvas id="navigation"></canvas>
 
 
-        <div class="btn">
-        <a href="index.html"><button>Home</button></a>
-        <button onclick="instruct()">Instructions</button>
-    </div>
-     
+
+
+        <div id="game-container">
+            <img id="gift" src="images/vim.png" alt="" width="10%">
+            <canvas id="game"></canvas>
+
+
+            <div class="btn">
+                <a href="index.html"><button>Home</button></a>
+                <button onclick="instruct()">Instructions</button>
             </div>
 
+        </div>
 
 
 
 
-            <div id="instruction">
-                <h1>Instructions :</h1>
-                <p>You will get one ring for each prize</p>
-<p>Drag ring to aim for gift</p>
-<h3>Good Luck!!!!</h3>
-<img src="images/thumb.jfif" alt="">
-<button onclick="closeInstruct()">Continue</button>
-            </div>
+
+        <div id="instruction">
+            <h1>Instructions :</h1>
+            <p>You will get one ring for each prize</p>
+            <p>Drag ring to aim for gift</p>
+            <p>If missed you will loose</p>
+            <h3>Good Luck!!!!</h3>
+            <img src="images/thumb.jfif" alt="">
+            <button onclick="closeInstruct()">Continue</button>
+        </div>
 
 
-</body>
+
+        <div id="red">
+            <p>You Have Miss The Target</p>
+            <img src="images/wrong.png" alt="">
+            <button onclick="countAnimation(true)">Another Chance</button>
+        </div>
+
+
+    </body>
+
 </html>
