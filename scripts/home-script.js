@@ -128,8 +128,8 @@ function closeInstruct() {
 
 // for showing hit and miss attempts of gift
 
-
-function state(state,c) {
+let gifthit;
+function state(state) {
    
     let red = document.getElementById('red');
     red.style.display = 'flex';
@@ -141,6 +141,13 @@ function state(state,c) {
     if (state == 0) {
         pChild.innerHTML = "You Miss The Gift";
         console.log(red.children);
+        imgChild = red.children[1];
+        btnChild = red.children[2];
+        btnChild.style.backgroundColor = "red";
+
+        imgChild.setAttribute('src', 'images/wrong.png');
+      
+        
     }
     else if (state == 1) {
         pChild = red.children[0];
@@ -152,6 +159,8 @@ function state(state,c) {
 
         imgChild.setAttribute('src', 'images/pop.gif');
         imgChild.setAttribute('class', 'green');
+gifthit=gifthit+1;
+console.log("you got : ",gifthit, "gifts");
 
     }
 
@@ -180,6 +189,7 @@ function countAnimation(boolVar) {
         gameAnimation(boolVar);
 
     }
+    
 
 
 
@@ -271,14 +281,14 @@ function gameAnimation(boolVar) {
 
                 c.strokeStyle = "green";
                 c.stroke();
-                state(1,c)
+                state(1)
             }
             else {
 
                 c.strokeStyle = "red";
                 c.stroke();
 
-                state(0,c);
+                state(0);
 
 
                 return;
