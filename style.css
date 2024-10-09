@@ -99,7 +99,7 @@ canvas {
 }
 .btn button {
   min-width: 100px;
-  min-height: 35px;
+  min-height: 40px;
   background-color: rgb(86, 245, 86);
   padding: 2%;
   border-radius: 5px;
