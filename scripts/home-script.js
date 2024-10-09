@@ -126,10 +126,11 @@ function closeInstruct() {
 
 
 
+// for showing hit and miss attempts of gift
 
 
-
-function state(state) {
+function state(state,c) {
+   
     let red = document.getElementById('red');
     red.style.display = 'flex';
     console.log(red.children)
@@ -186,7 +187,7 @@ function countAnimation(boolVar) {
 }
 
 
-
+//game function for using game logics
 
 function gameAnimation(boolVar) {
 
@@ -269,15 +270,15 @@ function gameAnimation(boolVar) {
             if (dist >= objDist) {
 
                 c.strokeStyle = "green";
-                c.stroke()
-                state(1)
+                c.stroke();
+                state(1,c)
             }
             else {
 
                 c.strokeStyle = "red";
                 c.stroke();
 
-                state(0);
+                state(0,c);
 
 
                 return;
