@@ -101,7 +101,7 @@ navAnimation();
 
 
 // for Instruction window
-
+let gifthit=0;
 function instruct() {
     let homeContainer = document.getElementsByClassName("home-container");
     console.log("ritika", homeContainer);
@@ -128,7 +128,7 @@ function closeInstruct() {
 
 // for showing hit and miss attempts of gift
 
-let gifthit;
+
 function state(state) {
    
     let red = document.getElementById('red');
@@ -150,6 +150,7 @@ function state(state) {
         
     }
     else if (state == 1) {
+        
         pChild = red.children[0];
         pChild.innerHTML = " Congrats !!! You got The Gift";
 
@@ -159,8 +160,9 @@ function state(state) {
 
         imgChild.setAttribute('src', 'images/pop.gif');
         imgChild.setAttribute('class', 'green');
-gifthit=gifthit+1;
-console.log("you got : ",gifthit, "gifts");
+        gifthit=gifthit+1;
+        console.log("you got : ",gifthit, "gifts");
+        gifthit=gifthit+1;
 
     }
 
@@ -192,7 +194,8 @@ function countAnimation(boolVar) {
     else{
       let result=document.getElementById("result");
       result.style.display="flex";
-
+let giftele=document.getElementById('res');
+giftele.innerHTML=gifthit/2;
 
 
     }
@@ -200,25 +203,25 @@ function countAnimation(boolVar) {
 
 
 
-
+    
 }
 
 
 //game function for using game logics
 
 function gameAnimation(boolVar) {
-
-
-
+    
+    
+    
     let gameContainer = document.getElementById("game-container");
     console.log(gameContainer)
     gameContainer.style.display = "flex";
-
-
-
-
+    
+    
+    
+    
     // for Event Listener
-
+    
     let startX = 0, startY = 0, endX = 0, endY = 0;
     let isDragging = false;
     let distance = 0;
@@ -229,7 +232,7 @@ function gameAnimation(boolVar) {
         startY = e.clientY;
         isDragging = true;
     });
-
+    
     // When mouse button is released, capturing the ending position and calculate distance
     window.addEventListener("mouseup", function (e) {
         if (isDragging) {
@@ -285,7 +288,7 @@ function gameAnimation(boolVar) {
 
             cancelAnimationFrame(id);
             if (dist >= objDist) {
-
+                console.log("gift you get: ",gifthit);
                 c.strokeStyle = "green";
                 c.stroke();
                 state(1)
