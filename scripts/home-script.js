@@ -302,7 +302,7 @@ function gameAnimation(boolVar) {
             }
         }
         dist = dist + 1;
-        y -=1;
+        y -=0.6;
     }
 
 }
